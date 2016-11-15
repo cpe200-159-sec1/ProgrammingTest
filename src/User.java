@@ -52,7 +52,7 @@ public class User implements IUser {
         return  !(str.equalsIgnoreCase("") || str == null);
     }
 
-    private void setType(int type)
+    void setType(int type)
     {
         switch (type)
         {
