@@ -1,26 +1,43 @@
 public class User implements IUser {
+    private static String name;
+    private static String password;
+    public static int type;
+    //public static final int USER_STUDENT = 1;
+    //public static final int USER_TEACHER = 2;
+
     @Override
     public String getName() {
-        return null;
+        return name;
     }
 
     @Override
     public String setName(String name) {
-        return null;
+        if (name!=null) {
+            this.name = name;
+            return name;
+        }
+        throw new RuntimeException() ;
     }
 
     @Override
     public String setPassword(String password) {
-        return null;
+        if (password!=null) {
+            this.password = password;
+            return password;
+        }
+        throw new RuntimeException() ;
     }
 
     @Override
     public boolean isPasswordCorrect(String password) {
-        return false;
+        if (this.password == password)return true;
+        else return false;
     }
 
     @Override
     public int getType() {
-        return 0;
+        if (type == 1 || type ==2)
+        return type;
+        else throw new RuntimeException();
     }
 }
