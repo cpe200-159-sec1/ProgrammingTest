@@ -1,6 +1,9 @@
 import javax.management.RuntimeErrorException;
 
 public class User implements IUser {
+    private static String name;
+    private static String password;
+    public int type;
     @Override
     public String getName() {
         return name;
@@ -37,6 +40,7 @@ public class User implements IUser {
         else throw new RuntimeException();
     }
 
+    @Override
     public int setType(int type) {
         if (type == 1 || type == 2) {
             this.type = type;
