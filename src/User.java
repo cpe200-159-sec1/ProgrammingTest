@@ -1,8 +1,6 @@
-public class User implements IUser {
-    private static String name;
-    private static String password;
-    public static int type;
+import javax.management.RuntimeErrorException;
 
+public class User implements IUser {
     @Override
     public String getName() {
         return name;
@@ -37,5 +35,13 @@ public class User implements IUser {
         if (type == 1 || type == 2)
             return type;
         else throw new RuntimeException();
+    }
+
+    public int setType(int type) {
+        if (type == 1 || type == 2) {
+            this.type = type;
+            return type;
+        } else throw new RuntimeException();
+
     }
 }
