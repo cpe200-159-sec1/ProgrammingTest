@@ -7,10 +7,7 @@ public class Users {
     // Create new user with type, name and password
     // user created with this method should be automatically added to userList;
     public IUser create(int type, String name, String password) {
-        User user = new User();
-        user.setName(name);
-        user.setType(type);
-        user.setPassword(password) ;
+        User user = new User(name, password, type);
         userList.add(user);
         return user;
     }
@@ -18,7 +15,6 @@ public class Users {
     // Add new user to repository
     public void add(IUser user) {
     userList.add(user);
-
     }
 
     // Delete user from repository
