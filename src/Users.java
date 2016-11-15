@@ -50,6 +50,10 @@ public class Users {
 
     // Return number of user in the list, according to type
     public int countByType(int type) {
+        for(int typenum: userList){
+            if
+        }
+
         return 0;
     }
 }
