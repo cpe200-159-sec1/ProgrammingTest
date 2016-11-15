@@ -1,26 +1,51 @@
+import javax.management.RuntimeErrorException;
+
 public class User implements IUser {
+    private static String name;
+    private static String password;
+    public int type;
     @Override
     public String getName() {
-        return null;
+        return name;
     }
 
     @Override
     public String setName(String name) {
-        return null;
+        if (name != null) {
+            this.name = name;
+            return name;
+        }
+        throw new RuntimeException();
     }
 
     @Override
     public String setPassword(String password) {
-        return null;
+        if (password != null) {
+            this.password = password;
+            return password;
+        }
+        throw new RuntimeException();
     }
 
     @Override
     public boolean isPasswordCorrect(String password) {
-        return false;
+        if (this.password == password) return true;
+        else return false;
     }
 
     @Override
     public int getType() {
-        return 0;
+        if (type == 1 || type == 2)
+            return type;
+        else throw new RuntimeException();
+    }
+
+    @Override
+    public int setType(int type) {
+        if (type == 1 || type == 2) {
+            this.type = type;
+            return type;
+        } else throw new RuntimeException();
+
     }
 }
