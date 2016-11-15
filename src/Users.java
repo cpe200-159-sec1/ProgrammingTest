@@ -14,6 +14,7 @@ public class Users {
         tmp.setType(type);
 
         userList.add(tmp);
+        
     }
 
     // Add new user to repository
