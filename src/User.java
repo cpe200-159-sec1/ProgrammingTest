@@ -23,7 +23,7 @@ public class User implements IUser {
     public String setName(String name) {
         boolean bool = ifEligible(name);
         this.name = bool?name:this.name;
-        if(this.name == null)
+        if(this.name == null || !bool)
             throw new RuntimeException("Wrong name input");
         return this.name;
     }
@@ -32,7 +32,7 @@ public class User implements IUser {
     public String setPassword(String password) {
         boolean bool = ifEligible(password);
         this.password = bool?password:this.password;
-        if(this.password == null)
+        if(this.password == null || !bool)
             throw new RuntimeException("Wrong password input");
         return this.password;
     }
@@ -57,10 +57,10 @@ public class User implements IUser {
         switch (type)
         {
             case 1:
-                this.type = type;
+                this.type = USER_STUDENT;
                 break;
             case 2:
-                this.type = type;
+                this.type = USER_TEACHER;
                 break;
             default:
                 System.out.println("Wrong type input");
