@@ -6,4 +6,6 @@ public interface IUser {
     public String setPassword(String password);
     public boolean isPasswordCorrect(String password);
     public int getType();
+
+    
 }
