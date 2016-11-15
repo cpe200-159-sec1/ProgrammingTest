@@ -9,9 +9,10 @@ public class Users {
     public IUser create(int type, String name, String password) {
         User user = new User();
         user.setName(name);
-        user.type = type;
+        user.setType(type);
         user.setPassword(password) ;
-        return null;
+        userList.add(user);
+        return user;
     }
 
     // Add new user to repository
@@ -23,8 +24,11 @@ public class Users {
     // Delete user from repository
     // Throw  RuntimeException if the user is not in the list
     public void remove(IUser user) throws RuntimeException {
-        userList.remove(user);
-
+        if(user == null){
+            throw new RuntimeException("Error 404 user is not found");
+        }else {
+            userList.remove(user);
+        }
     }
 
     // Return true if the user is in the list
@@ -39,6 +43,12 @@ public class Users {
 
     // Return number of user in the list, according to type
     public int countByType(int type) {
-        return 0;
+        int count = 0;
+        for (IUser user: userList)
+        {
+            if(user.getType() == type)
+                ++count;
+        }
+        return count;
     }
 }
